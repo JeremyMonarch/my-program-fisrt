@@ -60,11 +60,11 @@ namespace Lesson03.Conditions.Loops
             i = 0;
             sum = 0;
 
-            while (i !=N)
+            while (i != N)
             {
                 sum += i++;
             }
-            
+
             Console.WriteLine($"Sum of {N} is {sum}");
 
             i = 0;
@@ -106,17 +106,17 @@ namespace Lesson03.Conditions.Loops
             i = 0;
             sum = 0;
 
-            while(true)
+            while (true)
             {
-               sum += i % 2 == 0
-                    ? i++
-                    : 0;
+                sum += i % 2 == 0
+                     ? i++
+                     : 0;
                 if (++i >= N)
                 {
                     break;
                 }
             }
-            
+
             Console.WriteLine(sum);
 
             string message = Console.ReadLine();
@@ -157,18 +157,60 @@ namespace Lesson03.Conditions.Loops
             {
                 case 1:
                     Console.WriteLine(a1 + b1);
-                break;
+                    break;
                 case 2:
                     Console.WriteLine(a1 + b1);
-                break;
+                    break;
                 case 3:
                     Console.WriteLine(a1 + b1);
-                break;
+                    break;
                 case 4:
                     Console.WriteLine(a1 + b1);
-                break;
-                    default:
-                        break;
+                    break;
+                default:
+                    break;
+            }
+
+
+            //--------------------------HOMEWORK--------------------------/
+
+            Console.WriteLine("Input first nubmer: ");
+            string x = Console.ReadLine();
+            Console.WriteLine("Input second number: ");
+            string y = Console.ReadLine();
+            int summar = 0;
+
+            int A = 0;
+            int B = 0;
+
+            bool result = int.TryParse(x, out A);
+            bool result1 = int.TryParse(y, out B);
+            bool correct = result1 & result;
+
+            if (correct != true)
+            {
+                Console.WriteLine("Invalid input!");
+            }
+
+            else
+            {
+
+                if (A < B)
+                {
+                    while (A <= B)
+                        sum += A++;
+                }
+                else
+                {
+                    while (A >= B)
+                        sum += A--;
+                }
+                if (x == y)
+                {
+                    Console.WriteLine("\nX and Y equal: " + Math.Max(A, B));
+                }
+
+                Console.WriteLine("\nSummary is: " + summar);
             }
         }
     }
