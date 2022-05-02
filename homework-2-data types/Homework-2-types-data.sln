@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework-3-types-data", "Homework-3-Data types\Homework-3-types-data.csproj", "{0A22322A-5DD7-487F-9804-45109AB01484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework-2-types-data", "Homework-3-Data types\Homework-2-types-data.csproj", "{0A22322A-5DD7-487F-9804-45109AB01484}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
