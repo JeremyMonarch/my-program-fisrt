@@ -136,7 +136,11 @@ namespace Lesson04.Methods
             MaxMinValue(3, 43, 23);
             MaxMinValue(4.3, 9.23, 1.11, 13.32);
 
-            Repeat(x);
+            Console.WriteLine($"{SumNumbers(4, 7, out sum)}");
+            Console.WriteLine($"{sum}");
+
+            Console.WriteLine(Repeat(x, 4));          
+
 
             if (TrySumIfOdd(a, b, out int sum))
             {
@@ -169,14 +173,33 @@ namespace Lesson04.Methods
 
         static bool TrySumIfOdd(int a, int b, out int sum)
         {
-            sum = a + b;
+            Math.Max(a, b);
+            Math.Min(a, b);
+            sum = 0;
+           
+            if (sum < Math.Max(a, b) | sum > Math.Min(a, b))
+            {
+                
+                for (int i = Math.Min(a, b) + 1; i < Math.Max(a, b) ; i++)
+                {
+                    sum += i;
+                }
+            
+            }
+            
             return sum % 2 == 0;
         }
 
-        static void Repeat(string x)
+        static void Repeat(string x, int count)
         {
-            x = String.Concat(Enumerable.Repeat(x, 3));
-            Console.WriteLine("Your triple string: " + x);
+            var result = x;
+            
+            for (var i = 0; i < count - 1; i++)
+            {
+                result += x;
+            }
+            
+            return result;
         }
     }
 }
