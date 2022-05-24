@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Lesson._07.Strings
 {
@@ -74,13 +76,134 @@ namespace Lesson._07.Strings
             Console.WriteLine(stringbuilder.ToString());
             Console.WriteLine(emptyString);
 
-
+            HomeWork();
         }
 
         private void Print(string placeholder, string name)
         {
             Console.WriteLine(string.Format(placeholder, name));
             Console.WriteLine($"Hello, {name}");
+        }
+
+        //----------------------------------------------------HOMEWORK------------------------------------------//
+
+        static void HomeWork()
+        {
+            PrintInsertStrings();
+            string st = Console.ReadLine();
+            string nd = Console.ReadLine();
+
+            Console.WriteLine(Cmpr(st, nd));
+
+            int dgt = 0;
+            int str = 0;
+            int sym = 0;
+
+            string exp = "Hello, buddy12345!#%%$#^&!";
+            Console.WriteLine(Analyze(exp, out dgt, out str, out sym));
+            Console.WriteLine($"Letters = {str}, Digits = {dgt}, Symbols = {sym}");
+
+            PrintStrongsToSort();
+            Console.WriteLine(Sort(Console.ReadLine()));
+
+            Duplicate(Console.ReadLine());
+        }
+
+        static public bool Cmpr(string st, string nd)
+        {
+            if (st.Length != nd.Length)
+            {
+                PrintErrorStringsLenght();
+                return false;
+            }
+
+            for (int i = 0; i < st.Length; i++)
+            {
+                if (st[i] != nd[i])
+                {
+                    PrintCharsNotEqual();
+                    return false;
+                }
+            }
+            PrintCharsEqual();
+            return true;
+        }
+
+        static public string Analyze(string exp, out int dgt, out int str, out int sym)
+        {
+            dgt = 0;
+            str = 0;
+            sym = 0;
+            foreach (char c in exp)
+            {
+                if (char.IsLetter(c))
+                    str++;
+                else if (char.IsDigit(c))
+                    dgt++;
+                else
+                    sym++;
+            }
+            return exp;
+        }
+
+        static public char[] Sort(string x)
+        {
+            char[] sorted = x.ToCharArray();
+            char temp;
+
+            for (int i = 1; i < sorted.Length; i++)
+            {
+                for (int j = 0; j < sorted.Length - 1; j++)
+                {
+                    if (sorted[j] > sorted[j + 1])
+                    {
+                        temp = sorted[j];
+                        sorted[j] = sorted[j + 1];
+                        sorted[j + 1] = temp;
+                    }
+                }
+            }
+            return sorted;
+        }
+
+        static public void Duplicate(string str)
+        {
+            Dictionary<char, int> count = new();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (count.ContainsKey(str[i]))
+                    count[str[i]]++;
+                else
+                    count[str[i]] = 1;
+            }
+            foreach (var it in count.OrderBy(key => key.Value))
+            {
+                if (it.Value > 1)
+                    Console.WriteLine(it.Key + ", count = " +
+                                      it.Value);
+            }
+        }
+
+        private static void PrintInsertStrings()
+        {
+            Console.WriteLine("Insert 1fs and 2nd strings: ");
+        }
+        private static void PrintErrorStringsLenght()
+        {
+            Console.WriteLine("Strings lenght aren`t equal!");
+        }
+        private static void PrintCharsNotEqual()
+        {
+            Console.WriteLine("Chars aren`t equal!");
+        }
+        private static void PrintCharsEqual()
+        {
+            Console.WriteLine("Chars and strings are equal!");
+        }
+        private static void PrintStrongsToSort()
+        {
+            Console.WriteLine("Insert string: ");
         }
     }
 }
