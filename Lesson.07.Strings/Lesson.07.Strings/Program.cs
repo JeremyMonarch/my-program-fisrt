@@ -113,7 +113,6 @@ namespace Lesson._07.Strings
         {
             if (st.Length != nd.Length)
             {
-                PrintErrorStringsLenght();
                 return false;
             }
 
@@ -121,11 +120,9 @@ namespace Lesson._07.Strings
             {
                 if (st[i] != nd[i])
                 {
-                    PrintCharsNotEqual();
                     return false;
                 }
             }
-            PrintCharsEqual();
             return true;
         }
 
@@ -188,18 +185,6 @@ namespace Lesson._07.Strings
         private static void PrintInsertStrings()
         {
             Console.WriteLine("Insert 1fs and 2nd strings: ");
-        }
-        private static void PrintErrorStringsLenght()
-        {
-            Console.WriteLine("Strings lenght aren`t equal!");
-        }
-        private static void PrintCharsNotEqual()
-        {
-            Console.WriteLine("Chars aren`t equal!");
-        }
-        private static void PrintCharsEqual()
-        {
-            Console.WriteLine("Chars and strings are equal!");
         }
         private static void PrintStrongsToSort()
         {
