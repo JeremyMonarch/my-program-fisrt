@@ -8,18 +8,15 @@ namespace Lesson11.IntoToOop
 {
     public class PhoneBookRecord
     {
-        public Person person;
-        public int number;
+        private readonly Person _person;
+        private readonly int _number;
 
         public PhoneBookRecord(Person person, int number)
         {
-            this.person = person;
-            this.number = number;
+            this._person = person;
+            this._number = number;
         }
 
-        public string FullInfo()
-        {
-            return $"{this.person.FullInfo()} with phone number {this.number}";
-        }
+        public string FullInfo => $"{this._person.FullInfo} with phone number {this._number}";
     }
 }

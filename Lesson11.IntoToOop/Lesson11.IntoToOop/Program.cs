@@ -9,7 +9,10 @@ namespace Lesson11.IntoToOop
             Person person = new Person();
             person.FirstName = "Mykyta";
             person.LastName = "Zakh";
-            person.Age = 26;
+            person.PropAge = 30;
+            
+            
+            person.SetAge(12);
 
             var anotherPerson = new Person("Andrii", "Demchuk", 40);
             var thirdPerson = Person.Create("Lev", "Tolstoy", 24);
@@ -18,8 +21,9 @@ namespace Lesson11.IntoToOop
             {
                 FirstName = "Nick",
                 LastName = "Someone",
-                Age = 30,
             };
+            
+            fourthPerson.SetAge(30);
 
             Print(anotherPerson);
             Print(person);
@@ -36,13 +40,13 @@ namespace Lesson11.IntoToOop
             var phoneBook = new PhoneBook(records);
             foreach (var item in phoneBook.Records)
             {
-                Console.WriteLine(item.FullInfo());
+                Console.WriteLine(item.FullInfo);
             }
         }
 
         private static void Print(Person person)
         {
-            Console.WriteLine($"{person.FullInfo()}");
+            Console.WriteLine($"{person.FullInfo}");
         }
     }
 }
