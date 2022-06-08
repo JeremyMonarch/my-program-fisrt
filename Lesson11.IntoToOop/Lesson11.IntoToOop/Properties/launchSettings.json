@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Lesson11.IntoToOop": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Class-Homework\\Git Repo\\Lesson11.IntoToOop\\Lesson11.IntoToOop\\HomeWork"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    }
+  }
+}
