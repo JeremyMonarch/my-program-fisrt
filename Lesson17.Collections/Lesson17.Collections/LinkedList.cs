@@ -7,6 +7,40 @@ using System.Threading.Tasks;
 
 namespace Lesson17.Collections
 {
+
+    interface IIterator<T>
+    {
+        bool HasNext();
+        T Current { get; }
+        void Reset();
+    }
+
+    class LinkedListIterator<T> : IIterator<T>
+    {
+        private readonly LinkedList<T> _list;
+        private int index;
+        public T Current { get; private set; }
+       
+
+        public LinkedListIterator(LinkedList<T> _list)
+        {
+            _list = this._list;
+        }
+        public bool HasNext()
+        {
+            if (this.index <= this._list.Count)
+            {
+                Current = this._list.GetByIndex(this.index);
+                return true;
+            }
+            return false;
+        }
+
+        public void Reset()
+        {
+           this.index = 0;
+        }
+    }
     public class LinkedList<T> : ICollection<T>
     {
         private class Node<T>
@@ -70,6 +104,20 @@ namespace Lesson17.Collections
                 pointer = pointer.Next;
             }
             return false;
+        }
+
+        public T GetByIndex(int index)
+        {
+            if (index < 0 || index > this._count)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            var pointer = this.head;
+            for (int i = 0; i < index; i++)
+            {
+                pointer = pointer.Next;
+            }
+            return pointer.Value;
         }
 
         // can be skipped

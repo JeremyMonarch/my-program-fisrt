@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lesson17.Collections
 {
@@ -16,6 +21,20 @@ namespace Lesson17.Collections
             {
                 Console.WriteLine(item);
             }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list.GetByIndex(i));
+            }
+
+            var array = Enumerable.Range(0, 10).ToArray();
+            for (int j = 0; j < array.Length; j++)
+            {
+                Console.WriteLine(array[j]);
+            }
+
+            var index = 2;
+            Console.WriteLine($"{index} itm of list is {list.GetByIndex(index)}");
 
             Console.WriteLine(list.Contains(1));
 
