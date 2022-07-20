@@ -23,6 +23,53 @@
                 text-align: left;
             } 
         </style>
+        <script>
+            function ArraySort() {
+            var array1 = [1,7,4,3,7,6,8,2];
+            console.log(array1)
+
+            for (var i = 0; i < array1.length; i++)
+                for (var j = 0; j < array1.length - 1; j++) {
+                    if (arrya1[j] > array1[j +1]) {
+                        var temp = array1[j];
+                        array1[j] = array1[j + 1];
+                        array1[j + 1] = temp;
+                    }
+                }
+                console.log(array1);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            console.log(body);
+
+            var items = body.getElementsByTagName("li");
+
+            var itemToClick = document.getElementById("toClick");
+            console.log(itemToClick);
+
+            clickCounter = 0;
+            itemToClick.addEventListener("click", function () {
+                console.log("Button has been cliked " + clickCounter++ + " times");
+
+                var newItem = document.createElement("li");
+                newItem.innerText = "new item";
+                document.getElementById("other-list").appendChild(newItem);
+            });
+
+            itemToClick.addEventListener("mouseover",  function() {
+                this.style.cursor = "pointer";
+                this.style.textDecoration = "underline";
+                this.style.color = "blue";
+            })
+            
+            itemToClick.addEventListener("mouseleave",  function() {
+                this.style.textDecoration = null;
+                this.style.color = null;
+            })
+        });
+            
+        </script>
     </head>
     <body>
         <h1>Beetroot</h1>
@@ -37,9 +84,9 @@
             <li>...</li>
         </ul>
         
-        <h3 >Хто ще є?</h3>
+        <h3 id="toClick">Хто ще є?</h3>
         
-        <ul class="list-circle">
+        <ul id="other-list" class="list-circle">
             <li>Гарні студенти</li>
             <li>Круті менеджери</li>
             <li>Кльові викладачі</li>
